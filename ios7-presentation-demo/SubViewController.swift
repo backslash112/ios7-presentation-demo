@@ -83,12 +83,14 @@ class SubViewController: UIViewController, UIViewControllerTransitioningDelegate
             containterView.addSubview(presentingView)
             
             presentingView.frame = presentedView.frame
-            self.alertView.transform = CGAffineTransformMakeScale(1.6,1.6); // 动画效果
+            //self.alertView.transform = CGAffineTransformMakeScale(1.6,1.6); // 动画效果
+            self.alertView.frame.origin.y -= 200
             
             presentingView.alpha = 0.0
             presentingView.tintAdjustmentMode = UIViewTintAdjustmentMode.Dimmed
             
             UIView.animateWithDuration(0.25, animations: { () in
+                self.alertView.frame.origin.y += 200
                 presentingView.alpha = 1.0
                 self.alertView.transform = CGAffineTransformIdentity;
             }, completion: { finished in
@@ -100,6 +102,7 @@ class SubViewController: UIViewController, UIViewControllerTransitioningDelegate
             presentingView.frame = containterView.frame
 
             UIView.animateWithDuration(0.25, animations: { () in
+                self.alertView.frame.origin.y += 500
                 // self.alertView.transform = CGAffineTransformMakeScale(0.5, 0.5)
                 presentedView.alpha = 0.0
                 }, completion: { finished in
