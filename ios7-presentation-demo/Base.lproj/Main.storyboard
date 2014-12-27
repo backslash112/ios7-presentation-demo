@@ -58,39 +58,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, world!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWu-f9-5XG">
-                                <rect key="frame" x="112" y="107" width="96" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is sub view." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fpi-eU-zZI">
-                                <rect key="frame" x="97" y="159" width="126" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmy-F4-Wgb">
-                                <rect key="frame" x="140" y="417" width="40" height="30"/>
-                                <state key="normal" title="Close">
-                                    <color key="titleColor" red="0.92941176469999998" green="0.1960784314" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="closeButtonClick:" destination="2Xj-Js-gCS" eventType="touchUpInside" id="cU3-YN-zkA"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4l0-IH-bXw">
+                                <rect key="frame" x="80" y="142" width="160" height="284"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, world!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWu-f9-5XG">
+                                        <rect key="frame" x="32" y="94" width="96" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmy-F4-Wgb">
+                                        <rect key="frame" x="60" y="237" width="40" height="30"/>
+                                        <state key="normal" title="Close">
+                                            <color key="titleColor" red="0.92941176469999998" green="0.1960784314" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeButtonClick:" destination="2Xj-Js-gCS" eventType="touchUpInside" id="cU3-YN-zkA"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is sub view." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fpi-eU-zZI">
+                                        <rect key="frame" x="17" y="49" width="126" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="eWu-f9-5XG" firstAttribute="top" secondItem="Fpi-eU-zZI" secondAttribute="bottom" constant="24" id="ZaV-IB-irc"/>
+                                    <constraint firstAttribute="centerX" secondItem="hmy-F4-Wgb" secondAttribute="centerX" id="fJ5-Dw-QcY"/>
+                                    <constraint firstItem="Fpi-eU-zZI" firstAttribute="top" secondItem="4l0-IH-bXw" secondAttribute="top" constant="49" id="fkz-tn-uTB"/>
+                                    <constraint firstAttribute="centerX" secondItem="Fpi-eU-zZI" secondAttribute="centerX" id="jh9-34-o6h"/>
+                                    <constraint firstAttribute="centerX" secondItem="eWu-f9-5XG" secondAttribute="centerX" id="qn4-tn-vxj"/>
+                                    <constraint firstAttribute="bottom" secondItem="hmy-F4-Wgb" secondAttribute="bottom" constant="17" id="ysF-aE-cEW"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="lbQ-67-JEf" firstAttribute="top" secondItem="hmy-F4-Wgb" secondAttribute="bottom" constant="121" id="1a6-FW-Huj"/>
-                            <constraint firstAttribute="centerX" secondItem="Fpi-eU-zZI" secondAttribute="centerX" id="LqF-LG-PZu"/>
-                            <constraint firstItem="Fpi-eU-zZI" firstAttribute="top" secondItem="eWu-f9-5XG" secondAttribute="bottom" constant="31.5" id="Nan-yF-4JZ"/>
-                            <constraint firstItem="eWu-f9-5XG" firstAttribute="top" secondItem="yA0-uF-TpU" secondAttribute="bottom" constant="87" id="UVv-vD-gja"/>
-                            <constraint firstAttribute="centerX" secondItem="hmy-F4-Wgb" secondAttribute="centerX" id="jY9-hM-zO9"/>
-                            <constraint firstAttribute="centerX" secondItem="eWu-f9-5XG" secondAttribute="centerX" id="vVo-xM-PuA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4l0-IH-bXw" secondAttribute="trailing" constant="64" id="3K8-wd-XSM"/>
+                            <constraint firstItem="4l0-IH-bXw" firstAttribute="top" secondItem="yA0-uF-TpU" secondAttribute="bottom" constant="122" id="FT9-6h-F4J"/>
+                            <constraint firstItem="lbQ-67-JEf" firstAttribute="top" secondItem="4l0-IH-bXw" secondAttribute="bottom" constant="142" id="c6t-eT-uPS"/>
+                            <constraint firstItem="4l0-IH-bXw" firstAttribute="leading" secondItem="87h-Cu-4p1" secondAttribute="leadingMargin" constant="64" id="ifQ-A4-f4Q"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="alertView" destination="4l0-IH-bXw" id="ThU-dC-9In"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7cH-5Q-HAI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

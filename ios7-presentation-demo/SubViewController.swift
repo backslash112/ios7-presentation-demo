@@ -11,6 +11,8 @@ import UIKit
 class SubViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning
 {
 
+    @IBOutlet var alertView: UIView!
+    
     lazy var dimmingView: UIView = {
         let view = UIView(frame: self.view.frame)
         view.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.5)
@@ -29,6 +31,10 @@ class SubViewController: UIViewController, UIViewControllerTransitioningDelegate
         self.commonInit()
     }
     
+//    override func viewWillLayoutSubviews() {
+//        super.viewWillLayoutSubviews()
+//        self.view.setTranslatesAutoresizingMaskIntoConstraints(false)
+//    }
     func commonInit() {
         self.transitioningDelegate = self
         self.modalPresentationStyle = UIModalPresentationStyle.Custom
@@ -68,25 +74,33 @@ class SubViewController: UIViewController, UIViewControllerTransitioningDelegate
         let presentedView = presentedController!.view
         let presentingView = presentingController!.view
         
+        presentingView.frame = CGRectInset(containterView.bounds, 50, 50)
+
+
         if presentingController == self {
             
+            //containterView.addSubview(self.dimmingView)
             containterView.addSubview(presentingView)
+            
             presentingView.frame = presentedView.frame
+            self.alertView.transform = CGAffineTransformMakeScale(1.6,1.6); // 动画效果
+            
             presentingView.alpha = 0.0
             presentingView.tintAdjustmentMode = UIViewTintAdjustmentMode.Dimmed
             
-            // let transitionCoordinator  = presentingController!.transitionCoordinator()
-
             UIView.animateWithDuration(0.25, animations: { () in
                 presentingView.alpha = 1.0
+                self.alertView.transform = CGAffineTransformIdentity;
             }, completion: { finished in
                 transitionContext.completeTransition(true)
             })
             
         } else {
             // let transitionCoordinator = presentingController!.transitionCoordinator()
-            
+            presentingView.frame = containterView.frame
+
             UIView.animateWithDuration(0.25, animations: { () in
+                // self.alertView.transform = CGAffineTransformMakeScale(0.5, 0.5)
                 presentedView.alpha = 0.0
                 }, completion: { finished in
                     presentingView.tintAdjustmentMode = UIViewTintAdjustmentMode.Automatic
@@ -95,6 +109,7 @@ class SubViewController: UIViewController, UIViewControllerTransitioningDelegate
         }
     }
     
+    // ios 8 or later
 //    override func sizeForChildContentContainer(container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
 //        return CGSizeMake(200, 300)
 //    }
