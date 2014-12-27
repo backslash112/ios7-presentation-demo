@@ -43,13 +43,13 @@ class SubViewController: UIViewController, UIViewControllerTransitioningDelegate
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-//    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        
-//    }
-//    
-//    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        
-//    }
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return self
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return self
+    }
 
 // only avalible in iOS 8
 //    func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController!, sourceViewController source: UIViewController) -> UIPresentationController? {
@@ -57,8 +57,9 @@ class SubViewController: UIViewController, UIViewControllerTransitioningDelegate
 //    }
 
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
-        return 0.3
+        return 0.5
     }
+    
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         let presentedController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
         let presentingController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
@@ -68,28 +69,35 @@ class SubViewController: UIViewController, UIViewControllerTransitioningDelegate
         let presentingView = presentingController!.view
         
         if presentingController == self {
-            self.dimmingView.frame = containterView.bounds
-            self.dimmingView.alpha = 0.0
             
-            containterView.addSubview(self.dimmingView)
             containterView.addSubview(presentingView)
+            presentingView.frame = presentedView.frame
+            presentingView.alpha = 0.0
+            presentingView.tintAdjustmentMode = UIViewTintAdjustmentMode.Dimmed
             
             let transitionCoordinator  = presentingController!.transitionCoordinator()
-            transitionCoordinator!.animateAlongsideTransition({ (context: UIViewControllerTransitionCoordinatorContext!) -> Void in
-                self.dimmingView.alpha = 1.0
-            }, completion: nil)
+
+            UIView.animateWithDuration(0.25, animations: { () in
+                presentingView.alpha = 1.0
+            }, completion: { finished in
+                transitionContext.completeTransition(true)
+            })
             
         } else {
             let transitionCoordinator = presentingController!.transitionCoordinator()
-            transitionCoordinator!.animateAlongsideTransition({ (context: UIViewControllerTransitionCoordinatorContext!) -> Void in
-                self.dimmingView.alpha = 0.0
-            }, completion: nil)
+            
+            UIView.animateWithDuration(0.25, animations: { () in
+                presentedView.alpha = 0.0
+                }, completion: { finished in
+                    presentingView.tintAdjustmentMode = UIViewTintAdjustmentMode.Automatic
+                    transitionContext.completeTransition(true)
+            })
         }
     }
     
-    override func sizeForChildContentContainer(container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
-        return CGSizeMake(200, 300)
-    }
+//    override func sizeForChildContentContainer(container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
+//        return CGSizeMake(200, 300)
+//    }
 
     
     
