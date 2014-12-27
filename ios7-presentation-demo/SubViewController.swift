@@ -75,7 +75,7 @@ class SubViewController: UIViewController, UIViewControllerTransitioningDelegate
             presentingView.alpha = 0.0
             presentingView.tintAdjustmentMode = UIViewTintAdjustmentMode.Dimmed
             
-            let transitionCoordinator  = presentingController!.transitionCoordinator()
+            // let transitionCoordinator  = presentingController!.transitionCoordinator()
 
             UIView.animateWithDuration(0.25, animations: { () in
                 presentingView.alpha = 1.0
@@ -84,7 +84,7 @@ class SubViewController: UIViewController, UIViewControllerTransitioningDelegate
             })
             
         } else {
-            let transitionCoordinator = presentingController!.transitionCoordinator()
+            // let transitionCoordinator = presentingController!.transitionCoordinator()
             
             UIView.animateWithDuration(0.25, animations: { () in
                 presentedView.alpha = 0.0
