@@ -59,7 +59,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4l0-IH-bXw">
-                                <rect key="frame" x="80" y="142" width="160" height="284"/>
+                                <rect key="frame" x="160" y="28" width="160" height="284"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, world!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWu-f9-5XG">
                                         <rect key="frame" x="32" y="94" width="96" height="20.5"/>
@@ -90,17 +90,17 @@
                                     <constraint firstAttribute="centerX" secondItem="hmy-F4-Wgb" secondAttribute="centerX" id="fJ5-Dw-QcY"/>
                                     <constraint firstItem="Fpi-eU-zZI" firstAttribute="top" secondItem="4l0-IH-bXw" secondAttribute="top" constant="49" id="fkz-tn-uTB"/>
                                     <constraint firstAttribute="centerX" secondItem="Fpi-eU-zZI" secondAttribute="centerX" id="jh9-34-o6h"/>
+                                    <constraint firstAttribute="width" constant="160" id="ocI-vG-3UO"/>
                                     <constraint firstAttribute="centerX" secondItem="eWu-f9-5XG" secondAttribute="centerX" id="qn4-tn-vxj"/>
+                                    <constraint firstAttribute="height" constant="284" id="r4u-vT-hIc"/>
                                     <constraint firstAttribute="bottom" secondItem="hmy-F4-Wgb" secondAttribute="bottom" constant="17" id="ysF-aE-cEW"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="4l0-IH-bXw" secondAttribute="trailing" constant="64" id="3K8-wd-XSM"/>
-                            <constraint firstItem="4l0-IH-bXw" firstAttribute="top" secondItem="yA0-uF-TpU" secondAttribute="bottom" constant="122" id="FT9-6h-F4J"/>
-                            <constraint firstItem="lbQ-67-JEf" firstAttribute="top" secondItem="4l0-IH-bXw" secondAttribute="bottom" constant="142" id="c6t-eT-uPS"/>
-                            <constraint firstItem="4l0-IH-bXw" firstAttribute="leading" secondItem="87h-Cu-4p1" secondAttribute="leadingMargin" constant="64" id="ifQ-A4-f4Q"/>
+                            <constraint firstAttribute="centerX" secondItem="4l0-IH-bXw" secondAttribute="centerX" constant="-80" id="LPb-7W-cHy"/>
+                            <constraint firstAttribute="centerY" secondItem="4l0-IH-bXw" secondAttribute="centerY" constant="114" id="jri-WO-EN6"/>
                         </constraints>
                     </view>
                     <connections>
